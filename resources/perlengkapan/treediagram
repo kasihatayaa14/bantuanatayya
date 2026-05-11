@@ -1,0 +1,206 @@
+BANTUAN/
+│
+├── app/
+│   ├── Http/
+│   │   ├── Controllers/
+│   │   │
+│   │   │   ├── Auth/
+│   │   │   │   ├── LoginController.php
+│   │   │   │   ├── RegisterPenerimaController.php
+│   │   │   │   ├── UserAuthController.php
+│   │   │   │   └── PenerimaAuthController.php
+│   │   │   │
+│   │   │   ├── Dashboard/
+│   │   │   │   ├── AdminDashboardController.php
+│   │   │   │   ├── PetugasDashboardController.php
+│   │   │   │   └── PenerimaDashboardController.php
+│   │   │   │
+│   │   │   ├── Master/
+│   │   │   │   ├── UserController.php
+│   │   │   │   ├── JabatanController.php
+│   │   │   │   ├── PangkatController.php
+│   │   │   │   ├── StatusController.php
+│   │   │   │   ├── TahunController.php
+│   │   │   │   ├── PenerimaController.php
+│   │   │   │   ├── KategoriBantuanController.php
+│   │   │   │   ├── JenisBantuanController.php
+│   │   │   │   └── StatusPengajuanController.php
+│   │   │   │
+│   │   │   ├── Transaksi/
+│   │   │   │   ├── PengajuanController.php
+│   │   │   │   ├── VerifikasiController.php
+│   │   │   │   ├── PenyaluranController.php
+│   │   │   │   ├── BuktiPenyaluranController.php
+│   │   │   │   ├── BeritaController.php
+│   │   │   │   └── KomentarController.php
+│   │   │   │
+│   │   │   ├── Laporan/
+│   │   │   │   ├── LaporanController.php
+│   │   │   │   ├── LaporanBulananController.php
+│   │   │   │   ├── LaporanTahunanController.php
+│   │   │   │   └── LaporanPenyaluranController.php
+│   │   │   │
+│   │   │   └── Landing/
+│   │   │       └── LandingController.php
+│   │   │
+│   │   └── Middleware/
+│   │       ├── RoleMiddleware.php
+│   │       └── PenerimaMiddleware.php
+│   │
+│   ├── Models/
+│   │   ├── User.php
+│   │   ├── Penerima.php
+│   │   ├── Jabatan.php
+│   │   ├── Pangkat.php
+│   │   ├── Status.php
+│   │   ├── Tahun.php
+│   │   ├── KategoriBantuan.php
+│   │   ├── JenisBantuan.php
+│   │   ├── StatusPengajuan.php
+│   │   ├── Pengajuan.php
+│   │   ├── Verifikasi.php
+│   │   ├── Penyaluran.php
+│   │   ├── BuktiPenyaluran.php
+│   │   ├── Wilayah.php
+│   │   ├── Berita.php
+│   │   ├── Komentar.php
+│   │   └── LoginHistory.php
+│   │
+│   ├── Listeners/
+│   │   └── LogSuccessfulLogin.php
+│   │
+│   ├── Providers/
+│   │   ├── AppServiceProvider.php
+│   │   └── EventServiceProvider.php
+│   │
+│   └── Services/
+│       └── AutoBeritaService.php
+│
+├── database/
+│   ├── migrations/
+│   │   ├── create_users_table.php
+│   │   ├── create_penerimas_table.php
+│   │   ├── create_pengajuans_table.php
+│   │   ├── create_penyalurans_table.php
+│   │   ├── create_beritas_table.php
+│   │   └── create_komentars_table.php
+│   │
+│   └── seeders/
+│       ├── DatabaseSeeder.php
+│       ├── UserSeeder.php
+│       ├── MasterSeeder.php
+│       └── BantuanSeeder.php
+│
+├── public/
+│   ├── dist/                  ← AdminLTE
+│   ├── plugins/
+│   │
+│   ├── foto/
+│   │   ├── asset/
+│   │   └── carousel/
+│   │
+│   ├── uploads/
+│   │   ├── users/
+│   │   ├── penerima/
+│   │   ├── pengajuan/
+│   │   ├── verifikasi/
+│   │   └── penyaluran/
+│   │
+│   └── index.php
+│
+├── resources/
+│   ├── views/
+│   │
+│   │   ├── layouts/
+│   │   │   ├── guest.blade.php
+│   │   │   ├── admin.blade.php
+│   │   │   ├── petugas.blade.php
+│   │   │   └── penerima.blade.php
+│   │   │
+│   │   ├── components/
+│   │   │
+│   │   │   ├── guest/
+│   │   │   │   ├── navbar.blade.php
+│   │   │   │   └── footer.blade.php
+│   │   │   │
+│   │   │   ├── admin/
+│   │   │   │   ├── navbar.blade.php
+│   │   │   │   ├── sidebar.blade.php
+│   │   │   │   └── footer.blade.php
+│   │   │   │
+│   │   │   ├── petugas/
+│   │   │   │   ├── navbar.blade.php
+│   │   │   │   ├── sidebar.blade.php
+│   │   │   │   └── footer.blade.php
+│   │   │   │
+│   │   │   └── penerima/
+│   │   │       ├── navbar.blade.php
+│   │   │       ├── sidebar.blade.php
+│   │   │       └── footer.blade.php
+│   │
+│   │   ├── admin/
+│   │   │
+│   │   │   ├── dashboard/
+│   │   │   │   └── index.blade.php
+│   │   │
+│   │   │   ├── user/
+│   │   │   ├── jabatan/
+│   │   │   ├── pangkat/
+│   │   │   ├── status/
+│   │   │   ├── tahun/
+│   │   │   ├── penerima/
+│   │   │   ├── kategori-bantuan/
+│   │   │   ├── jenis-bantuan/
+│   │   │   ├── pengajuan/
+│   │   │   ├── verifikasi/
+│   │   │   ├── penyaluran/
+│   │   │   ├── berita/
+│   │   │   ├── komentar/
+│   │   │   └── laporan/
+│   │
+│   │   ├── petugas/
+│   │   │
+│   │   │   ├── dashboard/
+│   │   │   │   └── index.blade.php
+│   │   │
+│   │   │   ├── pengajuan/
+│   │   │   ├── verifikasi/
+│   │   │   ├── penyaluran/
+│   │   │   ├── berita/
+│   │   │   └── laporan/
+│   │
+│   │   ├── penerima/
+│   │   │
+│   │   │   ├── dashboard/
+│   │   │   │   └── index.blade.php
+│   │   │
+│   │   │   ├── pengajuan/
+│   │   │   ├── riwayat/
+│   │   │   ├── profil/
+│   │   │   └── bantuan/
+│   │
+│   │   ├── landing/
+│   │   │   ├── home.blade.php
+│   │   │   ├── berita.blade.php
+│   │   │   ├── detail-berita.blade.php
+│   │   │   ├── kategori.blade.php
+│   │   │   ├── tentang.blade.php
+│   │   │   └── kontak.blade.php
+│   │
+│   │   ├── auth/
+│   │   │   ├── login-user.blade.php
+│   │   │   ├── login-penerima.blade.php
+│   │   │   └── register-penerima.blade.php
+│   │
+│   │   └── errors/
+│   │       ├── 403.blade.php
+│   │       ├── 404.blade.php
+│   │       └── 500.blade.php
+│
+├── routes/
+│   ├── web.php
+│   └── auth.php
+│
+├── storage/
+├── tests/
+└── .env
