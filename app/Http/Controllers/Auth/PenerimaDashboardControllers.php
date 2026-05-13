@@ -3,48 +3,34 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Models\Penerima;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
 
 class PenerimaAuthController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | LOGIN PENERIMA
-    |--------------------------------------------------------------------------
-    */
-
-    public function login(Request $request)
+    public function login()
     {
-        $request->validate([
-            'nik'       => 'required',
+        return view('auth.loginpenerima');
+    }
+
+    public function prosesLogin(Request $request)
+    {
+        $credentials = $request->validate([
+            'email'     => 'required|email',
             'password'  => 'required',
         ]);
 
-        $penerima = Penerima::where('nik', $request->nik)->first();
+        if (Auth::guard('penerima')->attempt($credentials)) {
 
-        if (!$penerima) {
-            return back()->with('error', 'NIK tidak ditemukan.');
+            $request->session()->regenerate();
+
+            return redirect('/dashboard-penerima');
         }
 
-        if (!Hash::check($request->password, $penerima->password)) {
-            return back()->with('error', 'Password salah.');
-        }
-
-        Auth::guard('penerima')->login($penerima);
-
-        $request->session()->regenerate();
-
-        return redirect()->route('penerima.dashboard');
+        return back()->with([
+            'error' => 'Email atau password penerima salah'
+        ]);
     }
-
-    /*
-    |--------------------------------------------------------------------------
-    | LOGOUT PENERIMA
-    |--------------------------------------------------------------------------
-    */
 
     public function logout(Request $request)
     {
@@ -54,6 +40,6 @@ class PenerimaAuthController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect()->route('login.penerima.form');
+        return redirect('/');
     }
 }
